@@ -98,7 +98,6 @@
 </head>
 
 <body class="bg-surface font-body text-on-surface">
-  <?php include __DIR__ . '/../includes/header.php'; ?>
   <main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
     <!-- Hero Editorial Section -->
     <section class="mb-12">

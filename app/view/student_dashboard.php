@@ -281,7 +281,6 @@
             <span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest mt-1">Profile</span>
         </a>
     </nav>
-    <?php include __DIR__ . '/../includes/footer.php'; ?>
     <!-- Desktop Sidebar/Nav Mockup (Hidden on mobile) -->
     <div class="hidden md:block fixed right-8 top-1/2 -translate-y-1/2 space-y-8 z-40">
         <div class="flex flex-col gap-6 items-center">
