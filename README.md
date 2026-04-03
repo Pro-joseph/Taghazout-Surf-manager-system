@@ -63,3 +63,23 @@ Database name: `manage_surf`
 ```bash
 git clone https://github.com/your-username/surf-school-management.git
 cd surf-school-management
+```
+🔐 Default Roles
+Admin
+Manage lessons
+Manage students
+View enrollments
+Student
+Register / Login
+Enroll in lessons
+View payments
+📌 Future Improvements
+Online payment integration (Stripe / PayPal)
+Email notifications
+Dashboard analytics
+REST API support
+Frontend integration (React / Vue)
+🤝 Contributing
+
+Pull requests are welcome.
+
