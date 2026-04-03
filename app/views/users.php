@@ -1,4 +1,13 @@
-<div class="container mx-auto px-4 py-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/php chalenges/surfo/public/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8">
     <div class="bg-white rounded-lg shadow-lg p-6">
         <h1 class="text-3xl font-bold text-gray-800 mb-6">My Users</h1>
 
@@ -54,3 +63,5 @@
         <?php endif; ?>
     </div>
 </div>
+</body>
+</html>

@@ -1,19 +1,22 @@
 <?php
 require_once '../app/controller/UserController.php';
 
-$page = $_GET['page'] ?? 'home';
-$users = null;
+
+$page = $_GET['page'] ?? '';
+
 
 switch ($page) {
     case 'users':
         $controller = new UserController();
-        $users = $controller->getUsersData();
-        return header('Location: ../app/views/users.php');
-        break;
+        $users = $controller->getUsers();
+
+        exit;
+    case '':
+        break;      
 
     default:
-        echo "Page not found";
-        exit;
+        // Show homepage
+        break;
 }
 ?>
 <!DOCTYPE html>
@@ -152,23 +155,24 @@ switch ($page) {
             <p>No users found.</p>
         <?php endif; ?>
     <?php else: ?>
-        <div class="hidden md:flex items-center space-x-8">
-            <a class="font-['Plus_Jakarta_Sans'] tracking-tight text-sm font-semibold text-slate-500 hover:text-sky-800 transition-colors"
-                href="#">Destinations</a>
-            <a class="font-['Plus_Jakarta_Sans'] tracking-tight text-sm font-semibold text-slate-500 hover:text-sky-800 transition-colors"
-                href="#">Lessons</a>
-            <a class="font-['Plus_Jakarta_Sans'] tracking-tight text-sm font-semibold text-slate-500 hover:text-sky-800 transition-colors"
-                href="#">Coaches</a>
-            <a class="font-['Plus_Jakarta_Sans'] tracking-tight text-sm font-semibold text-slate-500 hover:text-sky-800 transition-colors"
-                href="#">Journal</a>
-        </div>
-        <div class="flex items-center space-x-4">
-            <a class="font-['Plus_Jakarta_Sans'] tracking-tight text-sm font-semibold text-slate-500 hover:text-sky-800 transition-colors"
-                href="../app/view/login.php">Login</a>
-            <a class="font-['Plus_Jakarta_Sans'] tracking-tight text-sm font-semibold bg-primary text-on-primary px-5 py-2 rounded transition-all hover:opacity-80 active:scale-95"
-                href="../app/view/register.php">Register</a>
-        </div>
-        </div>
+        <nav>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="font-['Plus_Jakarta_Sans'] tracking-tight text-sm font-semibold text-slate-500 hover:text-sky-800 transition-colors"
+                    href="#">Destinations</a>
+                <a class="font-['Plus_Jakarta_Sans'] tracking-tight text-sm font-semibold text-slate-500 hover:text-sky-800 transition-colors"
+                    href="#">Lessons</a>
+                <a class="font-['Plus_Jakarta_Sans'] tracking-tight text-sm font-semibold text-slate-500 hover:text-sky-800 transition-colors"
+                    href="#">Coaches</a>
+                <a class="font-['Plus_Jakarta_Sans'] tracking-tight text-sm font-semibold text-slate-500 hover:text-sky-800 transition-colors"
+                    href="#">Journal</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a class="font-['Plus_Jakarta_Sans'] tracking-tight text-sm font-semibold text-slate-500 hover:text-sky-800 transition-colors"
+                    href="../app/views/auth/login.php">Login</a>
+                <a class="font-['Plus_Jakarta_Sans'] tracking-tight text-sm font-semibold bg-primary text-on-primary px-5 py-2 rounded transition-all hover:opacity-80 active:scale-95"
+                    href="../app/views/auth/register.php">Register</a>
+            </div>
+            </div>
         </nav>
         <main class="pt-24">
             <!-- Hero Section -->
@@ -187,11 +191,11 @@ switch ($page) {
                         </p>
                         <div class="flex flex-wrap gap-4">
                             <a class="primary-cta-gradient inline-flex items-center justify-center text-on-primary px-8 py-4 rounded-lg font-headline font-bold text-sm tracking-wide uppercase transition-all hover:shadow-xl active:scale-95"
-                                href="../app/view/register.php">
+                                href="../app/views/auth/register.php">
                                 Get Started
                             </a>
                             <a class="bg-secondary-container inline-flex items-center justify-center text-on-secondary-container px-8 py-4 rounded-lg font-headline font-bold text-sm tracking-wide uppercase transition-all hover:bg-opacity-80 active:scale-95"
-                                href="../app/view/student_dashboard.php">
+                                href="../app/views/students/my_lessons.php">
                                 View Schedule
                             </a>
                         </div>
@@ -258,7 +262,7 @@ switch ($page) {
                                 reports and coach feedback in real-time.
                             </p>
                             <a class="inline-flex items-center font-headline font-bold text-primary group-hover:underline"
-                                href="../app/view/register.php">
+                                href="../app/views/auth/register.php">
                                 Register Now <span class="material-symbols-outlined ml-2"
                                     data-icon="arrow_forward">arrow_forward</span>
                             </a>
@@ -279,7 +283,7 @@ switch ($page) {
                                 surf school operations and staff logistics.
                             </p>
                             <a class="inline-flex items-center font-headline font-bold text-on-primary group-hover:underline"
-                                href="../app/view/login.php">
+                                href="../app/views/auth/login.php">
                                 Dashboard Login <span class="material-symbols-outlined ml-2" data-icon="login">login</span>
                             </a>
                             <div class="absolute -top-12 -right-12 w-48 h-48 bg-white/5 rounded-full"></div>
@@ -357,7 +361,7 @@ switch ($page) {
                 </div>
             </section>
         </main>
-        <?php include __DIR__ . '/../app/includes/footer.php'; ?>
+        <?php include __DIR__ . '/../app/layouts/footer.php'; ?>
     <?php endif; ?>
 </body>
 
