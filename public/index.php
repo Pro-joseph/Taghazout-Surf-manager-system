@@ -8,6 +8,7 @@ switch ($page) {
     case 'users':
         $controller = new UserController();
         $users = $controller->getUsersData();
+        return header('Location: ../app/views/users.php');
         break;
 
     default:
