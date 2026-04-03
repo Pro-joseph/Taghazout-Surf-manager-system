@@ -25,3 +25,41 @@ The system allows:
 ---
 
 ## 📂 Project Structure
+
+
+
+
+
+---
+
+## ⚙️ Features
+
+- Authentication system (Register / Login)
+- Role-based access (`admin`, `student`)
+- Student profile management
+- Lesson creation and listing
+- Enrollment system
+- Payment status tracking
+
+---
+
+## 🗄️ Database
+
+Database name: `manage_surf`
+
+### Tables:
+
+- `users`
+- `students`
+- `lessons`
+- `enrollments`
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/surf-school-management.git
+cd surf-school-management
