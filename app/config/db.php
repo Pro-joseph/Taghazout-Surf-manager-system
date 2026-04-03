@@ -19,6 +19,5 @@ class database
     }
 }
 
-$database = new database();
-$database->connect();
+
 ?>

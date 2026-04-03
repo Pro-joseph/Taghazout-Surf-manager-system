@@ -1,3 +1,18 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 
 <html class="light" lang="en">
@@ -122,7 +137,7 @@
             Back</span>
           <h2 class="font-headline font-bold text-4xl tracking-tight text-primary">Atlas Swell</h2>
         </header>
-        <form class="space-y-8">
+        <form action="../../../public/index.php?action=login" method="POST" class="space-y-8">
           <div class="space-y-6">
             <!-- Email Field -->
             <div class="group">

@@ -121,11 +121,11 @@
             Swell</span>
           <h1 class="text-4xl font-headline font-extrabold text-primary tracking-tighter">Create Account</h1>
         </header>
-        <form class="space-y-8">
+        <form action="../../../public/index.php?action=register" method="POST" class="space-y-8">
           <!-- Full Name -->
           <div class="relative group">
             <label class="block text-xs font-headline font-bold text-on-surface-variant uppercase tracking-wider mb-2"
-              for="name">Full Name</label>
+              for="name" name="name">Full Name</label>
             <input
               class="w-full bg-surface-container-low border-none p-4 text-on-surface placeholder:text-outline/50 focus:ring-2 focus:ring-primary rounded-none transition-all"
               id="name" placeholder="Elias Vance" type="text" />
@@ -133,7 +133,7 @@
           <!-- Email -->
           <div class="relative group">
             <label class="block text-xs font-headline font-bold text-on-surface-variant uppercase tracking-wider mb-2"
-              for="email">Email Address</label>
+              for="email" name="email">Email Address</label>
             <input
               class="w-full bg-surface-container-low border-none p-4 text-on-surface placeholder:text-outline/50 focus:ring-2 focus:ring-primary rounded-none transition-all"
               id="email" placeholder="elias@atlantic.com" type="email" />
@@ -142,21 +142,21 @@
           <div class="grid grid-cols-1 gap-8">
             <div>
               <label class="block text-xs font-headline font-bold text-on-surface-variant uppercase tracking-wider mb-2"
-                for="password">Password</label>
+                for="password" name="password">Password</label>
               <input
                 class="w-full bg-surface-container-low border-none p-4 text-on-surface placeholder:text-outline/50 focus:ring-2 focus:ring-primary rounded-none transition-all"
                 id="password" placeholder="••••••••" type="password" />
             </div>
             <div>
               <label class="block text-xs font-headline font-bold text-on-surface-variant uppercase tracking-wider mb-2"
-                for="confirm-password">Confirm Password</label>
+                for="confirm-password" name="confirm-password">Confirm Password</label>
               <input
                 class="w-full bg-surface-container-low border-none p-4 text-on-surface placeholder:text-outline/50 focus:ring-2 focus:ring-primary rounded-none transition-all"
                 id="confirm-password" placeholder="••••••••" type="password" />
             </div>
           </div>
           <div class="pt-4">
-            <button
+            <button name="register"
               class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-5 px-8 font-headline font-bold tracking-tight text-lg shadow-xl shadow-primary/10 hover:shadow-primary/20 transition-all active:scale-[0.98]"
               type="submit">
               Create Account

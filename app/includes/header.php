@@ -3,8 +3,8 @@
     $isPublic = str_contains($_SERVER['PHP_SELF'], '/public/');
     $isAppView = str_contains($_SERVER['PHP_SELF'], '/app/view/');
     $homeUrl = $isPublic ? 'index.php' : ($isAppView ? '../public/index.php' : '../public/index.php');
-    $loginUrl = $isPublic ? '../app/view/login.php' : 'login.php';
-    $registerUrl = $isPublic ? '../app/view/register.php' : 'register.php';
+    $loginUrl = $isPublic ? '../app/view/auth/login.php' : 'login.php';
+    $registerUrl = $isPublic ? '../app/view/auth/register.php' : 'register.php';
     $dashboardUrl = $isPublic ? '../app/view/student_dashboard.php' : 'student_dashboard.php';
     $lessonsUrl = $isPublic ? '../app/view/add_session.php' : 'add_session.php';
     $profileUrl = $isPublic ? '../app/view/student_profile.php' : 'student_profile.php';

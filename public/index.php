@@ -1,3 +1,18 @@
+<?php
+session_abort();
+require_once 'controller/AuthController.php';
+
+$auth = new AuthController();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if ($_POST['action'] === 'register') {
+        $auth->register();
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -130,7 +145,7 @@
     </nav>
     <main class="pt-24">
         <!-- Hero Section -->
-        <section class="relative min-h-[870px] flex items-center px-8 overflow-hidden">
+        <section class="relative min-h-[300px] flex items-center px-8 overflow-hidden">
             <div class="max-w-7xl mx-auto w-full editorial-grid relative z-10">
                 <div class="col-span-12 md:col-span-7 flex flex-col justify-center">
                     <span class="font-label text-secondary font-bold tracking-[0.2em] uppercase text-xs mb-6">The
