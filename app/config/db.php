@@ -1,23 +1,40 @@
 <?php
-class database
+
+class Database
 {
     private $host = 'localhost';
-    private $dbname = 'manage_surf';
+    private $dbname = 'surfo';
     private $user = 'root';
     private $pass = '';
-
-    public function connect()
+    private static $instance = null;
+    private $conn;
+    private function __construct()
     {
         try {
-            $conn = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname, $this->user, $this->pass);
-            $conn->setAttribute(pdo::ATTR_ERRMODE, pdo::ERRMODE_EXCEPTION);
-            echo "connected succesfully";
+            $this->conn = new PDO(
+                'mysql:host=' . $this->host . ';dbname=' . $this->dbname,
+                $this->user,
+                $this->pass
+            );
+
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
         } catch (PDOException $e) {
-            echo "connection error:" . $e->getMessage();
+            die("Connection error: " . $e->getMessage());
         }
-        return $conn;
+    }
+
+    public static function getInstance()
+    {
+        if (self::$instance === null) {
+            self::$instance = new Database();
+        }
+
+        return self::$instance;
+    }
+
+    public function getConnection()
+    {
+        return $this->conn;
     }
 }
-
-
-?>

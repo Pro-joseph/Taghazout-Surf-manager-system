@@ -1,18 +1,24 @@
 <?php
-session_abort();
-require_once 'controller/AuthController.php';
+require_once 'app/controller/AuthController.php';
+require_once 'app/controller/UserController.php';
 
-$auth = new AuthController();
+$page = $_GET['page'] ?? 'home';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+switch($page) {
+    case 'users':
+        $controller = new UserController();
+        $controller->getUsers(); // this will load view
+        break;
+    
+    case 'register':
+        $controller = new AuthController();
+        $controller->register();
+        break;
 
-    if ($_POST['action'] === 'register') {
-        $auth->register();
-    }
+    default:
+        echo "Page not found";
 }
-
 ?>
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -124,7 +130,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
-    <?php include __DIR__ . '/../app/includes/header.php'; ?>
     <div class="hidden md:flex items-center space-x-8">
         <a class="font-['Plus_Jakarta_Sans'] tracking-tight text-sm font-semibold text-slate-500 hover:text-sky-800 transition-colors"
             href="#">Destinations</a>
