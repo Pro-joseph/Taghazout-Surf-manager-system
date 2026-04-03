@@ -3,7 +3,7 @@
 class Database
 {
     private $host = 'localhost';
-    private $dbname = 'surfo';
+    private $dbname = 'manage_surf';
     private $user = 'root';
     private $pass = '';
     private static $instance = null;

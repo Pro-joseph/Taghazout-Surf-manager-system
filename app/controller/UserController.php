@@ -16,4 +16,9 @@ class UserController
         // 2. send data to view
         require_once __DIR__ . '/../views/users.php';
     }
+
+    public function getUsersData()
+    {
+        return $this->userModel->getAllUsers();
+    }
 }
