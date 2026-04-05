@@ -1,7 +1,6 @@
 CREATE DATABASE manage_surf;
 
 USE manage_surf;
-
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
