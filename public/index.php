@@ -1,21 +1,19 @@
 <?php
-require_once '../app/controller/UserController.php';
-
 
 $page = $_GET['page'] ?? '';
 
 
 switch ($page) {
     case 'users':
+        require_once '../app/controller/UserController.php';
         $controller = new UserController();
         $users = $controller->getUsers();
 
         exit;
     case '':
-        break;      
+        break;
 
     default:
-        // Show homepage
         break;
 }
 ?>

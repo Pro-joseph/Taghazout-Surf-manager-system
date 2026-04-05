@@ -2,7 +2,6 @@ CREATE DATABASE manage_surf;
 
 USE manage_surf;
 
-
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -14,11 +13,10 @@ CREATE TABLE users (
 
 CREATE TABLE students (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
     country VARCHAR(100) NOT NULL,
     level ENUM('beginner','intermediate','advanced'),
-    user_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    user_id INT UNIQUE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE lessons (
@@ -36,22 +34,22 @@ CREATE TABLE enrollments (
     student_id INT,
     lesson_id INT,
     payment_status ENUM('paid','pending') DEFAULT 'pending',
-    FOREIGN KEY (student_id) REFERENCES students(id),
-    FOREIGN KEY (lesson_id) REFERENCES lessons(id)
+    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE,
+    FOREIGN KEY (lesson_id) REFERENCES lessons(id) ON DELETE CASCADE
 );
 
 -- Insert Users
-INSERT INTO users (email, password, role) VALUES
-('admin@surf.com', 'admin123', 'admin'),
-('alice@student.com', 'alice123', 'student'),
-('bob@student.com', 'bob123', 'student'),
-('charlie@student.com', 'charlie123', 'student');
+INSERT INTO users (name, email, password, role) VALUES
+('System Admin', 'admin@surf.com', 'admin123', 'admin'),
+('Alice Johnson', 'alice@student.com', 'alice123', 'student'),
+('Bob Smith', 'bob@student.com', 'bob123', 'student'),
+('Charlie Brown', 'charlie@student.com', 'charlie123', 'student');
 
 -- Insert Students (linked to user accounts)
-INSERT INTO students (name, country, level, user_id) VALUES
-('Alice Johnson', 'USA', 'beginner', 2),
-('Bob Smith', 'UK', 'intermediate', 3),
-('Charlie Brown', 'France', 'advanced', 4);
+INSERT INTO students (country, level, user_id) VALUES
+('USA', 'beginner', 2),
+('UK', 'intermediate', 3),
+('France', 'advanced', 4);
 
 -- Insert Lessons
 INSERT INTO lessons (title, coach, description, price, level, date) VALUES
@@ -65,10 +63,3 @@ INSERT INTO enrollments (student_id, lesson_id, payment_status) VALUES
 (2, 2, 'pending'),
 (3, 3, 'paid'),
 (1, 2, 'paid'); -- Alice also enrolls in the intermediate lesson
-
-
-
-
-
-
-
