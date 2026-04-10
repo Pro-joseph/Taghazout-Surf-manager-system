@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Fix the CSS direction relative to public/index.php where this will be included -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- The design relies on Tailwind, so we add the CDN here so the page actually looks right! -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>My Users</title>
-</head>
-
-<body>
-
     <div class="container mx-auto px-4 py-8">
         <div class="bg-white rounded-lg shadow-lg p-6">
-            <h1 class="text-3xl font-bold text-gray-800 mb-6">My Users</h1>
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">User Management</h1>
 
                 <?php if (!empty($users)): ?>
                 <div class="overflow-x-auto">
@@ -72,6 +57,3 @@
                 <?php endif; ?>
         </div>
     </div>
-</body>
-
-</html>

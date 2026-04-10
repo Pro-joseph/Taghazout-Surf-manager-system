@@ -2,7 +2,7 @@
 
 class Database
 {
-    private $host = 'localhost';
+    private $host = '127.0.0.1';
     private $dbname = 'manage_surf';
     private $user = 'root';
     private $pass = '';
@@ -18,6 +18,7 @@ class Database
             );
 
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // echo "Connected successfully";
         } catch (PDOException $e) {
             die("Connection error: " . $e->getMessage());
         }
@@ -37,5 +38,6 @@ class Database
         return $this->conn;
     }
 }
-
+// $db = Database::getInstance();
+// $conn = $db->getConnection();
 ?>

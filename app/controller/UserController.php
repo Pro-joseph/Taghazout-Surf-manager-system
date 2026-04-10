@@ -1,5 +1,5 @@
 <?php
-require_once '../app/model/usermodel.php';
+include __DIR__ . '/../model/usermodel.php';
 class UserController
 {
     private $userModel;
@@ -11,10 +11,8 @@ class UserController
 
     public function getUsers()
     {
-        // 1. get data from model
-        $users = $this->userModel->getAllUsers();
-        // 2. send data to view
-        require_once __DIR__ . '../../views/users.php';
+        //get data from model //
+        return $this->userModel->getAllUsers();
     }
 
 

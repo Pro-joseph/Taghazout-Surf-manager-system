@@ -8,11 +8,7 @@ switch ($page) {
         require_once '../app/controller/UserController.php';
         $controller = new UserController();
         $users = $controller->getUsers();
-
-        exit;
-    case '':
         break;
-
     default:
         break;
 }
@@ -129,29 +125,7 @@ switch ($page) {
 
 <body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
     <?php if ($page === 'users'): ?>
-        <h1>My users:</h1><br>
-        <?php if (!empty($users)): ?>
-            <?php foreach ($users as $user): ?>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>name</th>
-                            <th>email</th>
-                            <th>role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><?= $user['name']; ?></td>
-                            <td><?= $user['email']; ?></td>
-                            <td><?= $user['role']; ?></td>
-                        </tr>
-                    </tbody>
-                </table>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>No users found.</p>
-        <?php endif; ?>
+        <?php include '../app/views/users.php'; ?>
     <?php else: ?>
         <nav>
             <div class="hidden md:flex items-center space-x-8">
